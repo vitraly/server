@@ -7,5 +7,7 @@ namespace API.Services
     public interface IWidgetsService
     {
         Task<List<NewsModel>> GetNews();
+
+        Task<WeatherModel> GetWeather();
     }
 }

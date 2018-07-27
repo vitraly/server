@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    [Route("api/widgets")]
+    [Route("api/[controller]")]
     public class WidgetsController : Controller
     {
         private readonly IWidgetsService widgetsService;
@@ -24,6 +24,14 @@ namespace API.Controllers
         {
             List<NewsModel> newsList = await widgetsService.GetNews();
             return Ok(newsList);
+        }
+
+        // GET api/<controller>/weather
+        [HttpGet("weather")]
+        public async Task<IActionResult> GetWeather(int id)
+        {
+            WeatherModel weather = await widgetsService.GetWeather();
+            return Ok(weather);
         }
     }
 }

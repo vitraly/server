@@ -9,8 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Geocoding.Microsoft" Version="4.0.1" />
     <PackageReference Include="Hassie.NET.API.NewsAPI" Version="2.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="OpenWeatherMap" Version="1.1.0" />
   </ItemGroup>
 
 </Project>
