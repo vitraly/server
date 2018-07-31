@@ -9,5 +9,7 @@ namespace API.Services
         Task<List<NewsModel>> GetNews();
 
         Task<WeatherModel> GetWeather();
+
+        Task<MessageModel> GetMessage();
     }
 }

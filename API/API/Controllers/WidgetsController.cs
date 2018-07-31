@@ -28,10 +28,18 @@ namespace API.Controllers
 
         // GET api/<controller>/weather
         [HttpGet("weather")]
-        public async Task<IActionResult> GetWeather(int id)
+        public async Task<IActionResult> GetWeather()
         {
             WeatherModel weather = await widgetsService.GetWeather();
             return Ok(weather);
+        }
+
+        // GET api/<controller>/message
+        [HttpGet("message")]
+        public async Task<IActionResult> GetMessage()
+        {
+            MessageModel message = await widgetsService.GetMessage();
+            return Ok(message);
         }
     }
 }

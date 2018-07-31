@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <UserSecretsId>c843f2c2-df64-45b4-b880-7f8b12d254be</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +13,7 @@
     <PackageReference Include="Geocoding.Microsoft" Version="4.0.1" />
     <PackageReference Include="Hassie.NET.API.NewsAPI" Version="2.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="2.1.1" />
     <PackageReference Include="OpenWeatherMap" Version="1.1.0" />
   </ItemGroup>
 
