@@ -23,23 +23,29 @@ namespace API.Services
             this.httpClient = httpClient;
         }
 
-        public async Task<List<NewsModel>> GetNews()
+        public async Task<NewsModel> GetNews()
         {
             string apiKey = options.Value.NewsApiKey;
             INewsClient newsClient = new ClientBuilder() { ApiKey = apiKey }.Build();
             INewsArticles newsArticles = await newsClient.GetTopHeadlines(new TopHeadlinesBuilder().WithSourcesQuery(Source.BBC_NEWS).Build());
-            List<NewsModel> newsList = new List<NewsModel>();
+            List<HeadlineModel> headlinesList = new List<HeadlineModel>();
             for (int i = 0; i < 3; i++)
             {
-                var news = new NewsModel()
+                var headline = new HeadlineModel()
                 {
                     Id = i + 1,
                     NewsTitle = newsArticles[i].Title,
                     NewsDescription = newsArticles[i].Description
                 };
-                newsList.Add(news);
+                headlinesList.Add(headline);
             }
-            return newsList;
+
+            NewsModel news = new NewsModel()
+            {
+                Headlines = headlinesList
+            };
+
+            return news;
         }
 
         public async Task<WeatherModel> GetWeather()

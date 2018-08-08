@@ -1,11 +1,11 @@
-﻿namespace API.Models
+﻿using System.Collections.Generic;
+
+namespace API.Models
 {
     public class NewsModel
     {
-        public int Id { get; set; }
+        public int PositionId { get; } = 1;
 
-        public string NewsTitle { get; set; }
-
-        public string NewsDescription { get; set; }
+        public List<HeadlineModel> Headlines { get; set; }
     }
 }
