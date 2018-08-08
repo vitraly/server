@@ -41,5 +41,13 @@ namespace API.Controllers
             MessageModel message = await widgetsService.GetMessage();
             return Ok(message);
         }
+
+        // GET api/<controller>/quote
+        [HttpGet("quote")]
+        public async Task<IActionResult> GetQuote()
+        {
+            QuoteModel quoteOfTheDay = await widgetsService.GetQuote();
+            return Ok(quoteOfTheDay);
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace API.Services
         Task<WeatherModel> GetWeather();
 
         Task<MessageModel> GetMessage();
+
+        Task<QuoteModel> GetQuote();
     }
 }

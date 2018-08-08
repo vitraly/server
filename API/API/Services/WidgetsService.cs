@@ -97,5 +97,25 @@ namespace API.Services
 
             return result;
         }
+
+        public async Task<QuoteModel> GetQuote()
+        {
+            var client = httpClient.CreateClient();
+            HttpResponseMessage response = await client.GetAsync("http://quotes.rest/qod.json");
+
+            string quote = null;
+            if (response.IsSuccessStatusCode)
+            {
+                quote = await response.Content.ReadAsStringAsync();
+            }
+
+            JObject responseJson = JObject.Parse(quote);
+            QuoteModel quoteOfTheDay = new QuoteModel()
+            {
+                Quote = responseJson["contents"]["quotes"][0]["quote"].Value<string>(),
+                Author = responseJson["contents"]["quotes"][0]["author"].Value<string>()
+            };
+            return quoteOfTheDay;
+        }
     }
 }
