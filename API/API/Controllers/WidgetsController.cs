@@ -17,9 +17,17 @@ namespace API.Controllers
             this.widgetsService = widgetsService;
         }
 
+        // GET: api/<controller>/
+        [HttpGet()]
+        public async Task<IActionResult> GetWidgets()
+        {
+            WidgetsModel widgets = await widgetsService.GetWidgets();
+            return Ok(widgets);
+        }
+
         // GET: api/<controller>/news
         [HttpGet("news")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetNews()
         {
             NewsModel newsList = await widgetsService.GetNews();
             return Ok(newsList);

@@ -12,5 +12,7 @@ namespace API.Services
         Task<MessageModel> GetMessage();
 
         Task<QuoteModel> GetQuote();
+
+        Task<WidgetsModel> GetWidgets();
     }
 }

@@ -123,5 +123,18 @@ namespace API.Services
             };
             return quoteOfTheDay;
         }
+
+        public async Task<WidgetsModel> GetWidgets()
+        {
+            WidgetsModel widgets = new WidgetsModel()
+            {
+                Weather = await GetWeather(),
+                News = await GetNews(),
+                Quote = await GetQuote(),
+                Message = await GetMessage()
+            };
+
+            return widgets;
+        }
     }
 }
